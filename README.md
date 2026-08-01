@@ -33,7 +33,6 @@ project-root/
 ## Prerequisites
 
 - [Docker Desktop](https://www.docker.com/products/docker-desktop/) installed and running
-- (Optional, for local non-Docker backend dev) Java 21+ and Maven
 
 ## Using This Template
 
@@ -50,7 +49,7 @@ Before running anything, replace these placeholders throughout the project (`doc
 ### 1. Clone the repository
 
 ```bash
-git clone <your-repo-url>
+git clone https://github.com/rgrmlbn/Template.git
 cd <your-project-folder>
 ```
 
@@ -108,6 +107,7 @@ This starts:
 
 ### 6. Access the app
 
+- Frontend: [http://localhost:5173](http://localhost:5173) (if present)
 - Backend API: [http://localhost:8080](http://localhost:8080)
 - Swagger docs: [http://localhost:8080/swagger-ui.html](http://localhost:8080/swagger-ui.html)
 
@@ -116,12 +116,13 @@ This starts:
 Useful for active backend development with hot reload / debugging in an IDE.
 
 1. Start just the database and cache:
+   
    ```bash
    docker-compose -f docker-compose.dev.yml up
    ```
-2. Open the `backend/` folder in your IDE (e.g. IntelliJ) as its own project.
-3. Make sure `backend/.env` is filled in — it's read automatically via `spring-dotenv`.
-4. Run the Spring Boot application (`dev` profile is active by default).
+3. Open the `backend/` folder in your IDE (e.g. IntelliJ) as its own project.
+4. Make sure `backend/.env` is filled in — it's read automatically via `spring-dotenv`.
+5. Run the Spring Boot application (`dev` profile is active by default).
 
 ## Environment Variables Reference
 
@@ -145,6 +146,7 @@ Useful for active backend development with hot reload / debugging in an IDE.
 - `application-dev.properties` and `application-docker.properties` are safe to commit; they only reference environment variables (`${VAR}`), never real values.
 - Rate limiting for login attempts is configured via `app.rate-limit.login.*` in the properties files and backed by Redis.
 - To reset the database to a clean state, stop containers and remove volumes:
+  
   ```bash
   docker-compose down -v
   ```
