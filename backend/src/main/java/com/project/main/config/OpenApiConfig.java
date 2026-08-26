@@ -16,11 +16,11 @@ public class OpenApiConfig {
     public OpenAPI openAPI() {
         return new OpenAPI()
                 .info(new Info()
-                        .title("Dental Appointment API")
+                        .title("Authentication API")
                         .description("REST API documentation")
                         .version("1.0.0")
                         .contact(new Contact()
-                                .name("Rogerd3v")
+                                .name("rgrmlbn")
                                 .email("rogerabarico21@email.com")
                         )
                 )
